@@ -1,6 +1,6 @@
 extends Control
 
-# Troque pelo caminho real da sua cena do jogo (botão direito > Copy Path)
+# proximaa do jogo 
 const PROXIMA_CENA := "res://game/mundo.tscn"
 
 const CARACTERES_POR_SEGUNDO := 30.0

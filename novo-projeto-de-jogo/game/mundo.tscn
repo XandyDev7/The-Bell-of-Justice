@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cqen7ff4rh8o6" path="res://game/scripts/mundo.gd" id="1_gmt5d"]
 [ext_resource type="Texture2D" uid="uid://bfh3q6avqyguf" path="res://game/images.jpeg" id="2_gmt5d"]
-[ext_resource type="Texture2D" uid="uid://cgahfpvovit4g" path="res://game/idle_0.png" id="3_apdtv"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="4_2rq16"]
+[ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="4_cm2bt"]
 
 [node name="mundo" type="Node2D" unique_id=288168953]
 script = ExtResource("1_gmt5d")
@@ -12,16 +12,12 @@ script = ExtResource("1_gmt5d")
 position = Vector2(203, 113)
 texture = ExtResource("2_gmt5d")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=726301017]
-
-[node name="Idle0" type="Sprite2D" parent="CharacterBody2D" unique_id=1540518620]
-position = Vector2(-119, 411)
-scale = Vector2(0.48333326, 0.40972218)
-texture = ExtResource("3_apdtv")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1342607144 node_paths=PackedStringArray("player")]
 position = Vector2(-38, 1)
 script = ExtResource("4_2rq16")
-player = NodePath("../CharacterBody2D")
+player = NodePath("../Player")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=469213077]
+
+[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("4_cm2bt")]
+position = Vector2(-25, 5)
