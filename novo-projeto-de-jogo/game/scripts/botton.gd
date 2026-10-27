@@ -15,9 +15,9 @@ func _on_creditsbutton_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
-	get_tree().change_scene_to_file("res://game//mundo.tscn")
-	print('start pressed' )
+	get_tree().change_scene_to_file("res://game/introdução.tscn")
+	print("start pressed")
+	pass
 
 func _on_credits_pressed() -> void:
 		print ("credits pressed")
