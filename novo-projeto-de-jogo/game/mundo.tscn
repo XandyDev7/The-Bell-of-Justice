@@ -4,20 +4,98 @@
 [ext_resource type="Texture2D" uid="uid://bfh3q6avqyguf" path="res://game/images.jpeg" id="2_gmt5d"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="4_2rq16"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="4_cm2bt"]
+[ext_resource type="Texture2D" uid="uid://bucqv06agaco0" path="res://vArma/sprite_00.png" id="5_b4og6"]
+[ext_resource type="Texture2D" uid="uid://cgahfpvovit4g" path="res://game/idle_0.png" id="5_cm2bt"]
+[ext_resource type="Texture2D" uid="uid://btka5btgo44ro" path="res://vArma/sprite_01.png" id="6_af3tr"]
+[ext_resource type="PackedScene" uid="uid://uhgu7q44iyp3" path="res://game/npc.tscn" id="6_apdtv"]
+[ext_resource type="Texture2D" uid="uid://c2w1drdupe1ej" path="res://vArma/sprite_02.png" id="7_k5sgt"]
+[ext_resource type="Texture2D" uid="uid://dkxfwe5k3ax5o" path="res://vArma/sprite_03.png" id="8_1yfwc"]
+[ext_resource type="Texture2D" uid="uid://csgh3symg182u" path="res://vArma/sprite_04.png" id="9_2fhui"]
+[ext_resource type="Texture2D" uid="uid://5qtpi3g6ldtk" path="res://vArma/sprite_05.png" id="10_3t60p"]
+[ext_resource type="Texture2D" uid="uid://cc12i2doxfy2g" path="res://vArma/sprite_06.png" id="11_m4mh4"]
+[ext_resource type="Texture2D" uid="uid://blgolcpvw37hq" path="res://vArma/sprite_07.png" id="12_g80tl"]
+[ext_resource type="Texture2D" uid="uid://dwncsaggjnd5q" path="res://vArma/sprite_08.png" id="13_vl8f1"]
+[ext_resource type="Texture2D" uid="uid://yw720pnkag3i" path="res://vArma/sprite_09.png" id="14_4biro"]
+[ext_resource type="Texture2D" uid="uid://c2ilsurorlfc0" path="res://vArma/sprite_10.png" id="15_y3ibr"]
+[ext_resource type="Texture2D" uid="uid://dm4n0at2idsbl" path="res://vArma/sprite_11.png" id="16_kia4v"]
+[ext_resource type="Texture2D" uid="uid://ds7o2mkpnkppi" path="res://vArma/sprite_12.png" id="17_y46bg"]
+[ext_resource type="Texture2D" uid="uid://1ogda1m2acqt" path="res://vArma/sprite_13.png" id="18_2s8l6"]
+[ext_resource type="Texture2D" uid="uid://be7gfn3jvwi11" path="res://vArma/sprite_14.png" id="19_heofe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho3wu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b4og6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_af3tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k5sgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1yfwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2fhui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3t60p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4mh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g80tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vl8f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4biro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y3ibr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_kia4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y46bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2s8l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_heofe")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="mundo" type="Node2D" unique_id=288168953]
 script = ExtResource("1_gmt5d")
 
 [node name="Images" type="Sprite2D" parent="." unique_id=1650415011]
-position = Vector2(203, 113)
+position = Vector2(370.99994, 179.00002)
+scale = Vector2(3.6153526, 3.558209)
 texture = ExtResource("2_gmt5d")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1342607144 node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1342607144]
 position = Vector2(-38, 1)
 script = ExtResource("4_2rq16")
-player = NodePath("../Player")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=469213077]
 
+[node name="npc" parent="." unique_id=177833208 instance=ExtResource("6_apdtv")]
+position = Vector2(518, 338)
+frames = SubResource("SpriteFrames_ho3wu")
+
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("4_cm2bt")]
-position = Vector2(-25, 5)
+position = Vector2(30, 343)
+
+[node name="Idle0" type="Sprite2D" parent="." unique_id=707057330]
+position = Vector2(-1954, 1526)
+texture = ExtResource("5_cm2bt")

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://xwixrswlvkiq"]
+
+[ext_resource type="Script" uid="uid://cgbjajieeephw" path="res://game/scripts/botton.gd" id="1_jxtvb"]
+[ext_resource type="Texture2D" uid="uid://cmvjotrjr0hn2" path="res://game/images.png" id="2_b6xtv"]
+[ext_resource type="FontFile" uid="uid://bgtofaxesep53" path="res://game/Matcha World.otf" id="3_tbpic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0eb53"]
+texture = ExtResource("2_b6xtv")
+modulate_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eb53"]
+bg_color = Color(0.9998706, 0.9906618, 0.9376568, 0.9529412)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n77hg"]
+
+[node name="boton" type="Control" unique_id=183366045]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jxtvb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1291636708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0eb53")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1415461948]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -76.5
+offset_right = 176.5
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="start" type="Button" parent="VBoxContainer" unique_id=1402252548]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n77hg")
+text = "start game"
+
+[node name="credits" type="Button" parent="VBoxContainer" unique_id=279305705]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0eb53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n77hg")
+text = "credits"
+
+[node name="Label" type="Label" parent="." unique_id=1797288215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -126.0
+offset_right = 23.739136
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_tbpic")
+theme_override_font_sizes/font_size = 25
+text = "xps gameshow"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]

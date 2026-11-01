@@ -36,7 +36,8 @@ func _mostrar_fala() -> void:
 		_faceset.texture = load(caminho)
 	else:
 		_faceset.texture = null
-		push_warning("Retrato não encontrado: '" + caminho + "'")
+		if caminho != "":
+			push_warning("Retrato não encontrado: '" + caminho + "'")
 
 	_dialog.visible_characters = 0
 	_progresso = 0.0

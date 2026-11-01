@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://uhgu7q44iyp3"]
+
+[ext_resource type="Script" uid="uid://bpmusyvdwhljq" path="res://game/scripts/npc.gd" id="1_df5ka"]
+[ext_resource type="Texture2D" uid="uid://bucqv06agaco0" path="res://vArma/sprite_00.png" id="2_y00fm"]
+[ext_resource type="Texture2D" uid="uid://btka5btgo44ro" path="res://vArma/sprite_01.png" id="3_ho3wu"]
+[ext_resource type="Texture2D" uid="uid://c2w1drdupe1ej" path="res://vArma/sprite_02.png" id="4_xlbvg"]
+[ext_resource type="Texture2D" uid="uid://dkxfwe5k3ax5o" path="res://vArma/sprite_03.png" id="5_orsuh"]
+[ext_resource type="Texture2D" uid="uid://csgh3symg182u" path="res://vArma/sprite_04.png" id="6_m0j3s"]
+[ext_resource type="Texture2D" uid="uid://5qtpi3g6ldtk" path="res://vArma/sprite_05.png" id="7_7i8kh"]
+[ext_resource type="Texture2D" uid="uid://cc12i2doxfy2g" path="res://vArma/sprite_06.png" id="8_i6rc3"]
+[ext_resource type="Texture2D" uid="uid://blgolcpvw37hq" path="res://vArma/sprite_07.png" id="9_17wwt"]
+[ext_resource type="Texture2D" uid="uid://dwncsaggjnd5q" path="res://vArma/sprite_08.png" id="10_fvujk"]
+[ext_resource type="Texture2D" uid="uid://yw720pnkag3i" path="res://vArma/sprite_09.png" id="11_pk7xc"]
+[ext_resource type="Texture2D" uid="uid://c2ilsurorlfc0" path="res://vArma/sprite_10.png" id="12_r3p3o"]
+[ext_resource type="Texture2D" uid="uid://dm4n0at2idsbl" path="res://vArma/sprite_11.png" id="13_04qu7"]
+[ext_resource type="Texture2D" uid="uid://ds7o2mkpnkppi" path="res://vArma/sprite_12.png" id="14_ubfig"]
+[ext_resource type="Texture2D" uid="uid://1ogda1m2acqt" path="res://vArma/sprite_13.png" id="15_hn8oi"]
+[ext_resource type="Texture2D" uid="uid://be7gfn3jvwi11" path="res://vArma/sprite_14.png" id="16_s1lwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y00fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ho3wu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xlbvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_orsuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m0j3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7i8kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i6rc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_17wwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fvujk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pk7xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r3p3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_04qu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ubfig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hn8oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_s1lwc")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(11, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(28.5, 53)
+
+[node name="npc" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
+script = ExtResource("1_df5ka")
+zona = NodePath("Area2D")
+dica = NodePath("Label")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(12.8, -2.8333309)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.30854225
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(10.5, 15.5)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(10.75, -1)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Label" type="Label" parent="." unique_id=782062345]
+offset_left = 1.0
+offset_top = -74.0
+offset_right = 19.0
+offset_bottom = -29.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Z"

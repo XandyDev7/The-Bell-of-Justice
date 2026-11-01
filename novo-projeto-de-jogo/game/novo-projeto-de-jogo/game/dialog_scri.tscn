@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cdn4u42odf8ct"]
+
+[ext_resource type="Script" uid="uid://cafvwxsjakfwu" path="res://game/scripts/dialog_scrim.gd" id="1_qktoc"]
+[ext_resource type="Texture2D" uid="uid://dnfjtf8wgluuf" path="res://game/faceset-b.png" id="2_qktoc"]
+[ext_resource type="FontFile" uid="uid://bgtofaxesep53" path="res://game/Matcha World.otf" id="3_e7ntr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0eb53"]
+line_spacing = 0.0
+font = ExtResource("3_e7ntr")
+shadow_color = Color(0, 0, 0, 0.6)
+
+[node name="dialogScri" type="Control" unique_id=1709464444 node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -10.0
+offset_right = 240.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qktoc")
+_name = NodePath("ColorRect(background)/HBoxContainer/VBoxContainer/Label(name)")
+_dialog = NodePath("ColorRect(background)/HBoxContainer/VBoxContainer/RichTextLabel(dialog)")
+_faceset = NodePath("ColorRect(background)/HBoxContainer/ColorRect(border)/TextureRect(facet)")
+
+[node name="ColorRect(background)" type="ColorRect" parent="." unique_id=1291928476]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -132.0
+offset_right = -77.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.6)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect(background)" unique_id=405363582]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -36.0
+offset_right = 156.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect(border)" type="ColorRect" parent="ColorRect(background)/HBoxContainer" unique_id=1919520064]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="TextureRect(facet)" type="TextureRect" parent="ColorRect(background)/HBoxContainer/ColorRect(border)" unique_id=19036420]
+custom_minimum_size = Vector2(70, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qktoc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect(background)/HBoxContainer" unique_id=635978381]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label(name)" type="Label" parent="ColorRect(background)/HBoxContainer/VBoxContainer" unique_id=1486512641]
+layout_mode = 2
+text = "Xerife"
+label_settings = SubResource("LabelSettings_0eb53")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RichTextLabel(dialog)" type="RichTextLabel" parent="ColorRect(background)/HBoxContainer/VBoxContainer" unique_id=91845307]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_fonts/normal_font = ExtResource("3_e7ntr")
+theme_override_font_sizes/normal_font_size = 12
