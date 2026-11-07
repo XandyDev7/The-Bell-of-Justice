@@ -20,6 +20,7 @@ func _on_start_pressed() -> void:
 	pass
 
 func _on_credits_pressed() -> void:
-		print ("credits pressed")
+	get_tree().change_scene_to_file("res://game/creditos.tscn")
+	print ("credits pressed")
 
-		pass # Replace with function body.
+	pass 

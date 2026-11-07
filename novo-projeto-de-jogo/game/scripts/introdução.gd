@@ -1,11 +1,10 @@
 extends Control
 
 # proximaa do jogo 
-const PROXIMA_CENA := "res://game/mundo.tscn"
+const PROXIMA_CENA := "res://game/casa_sala.tscn"
 
 const CARACTERES_POR_SEGUNDO := 30.0
 
-# Cada item da lista é uma "página" do texto
 const PAGINAS := [
 	"Muito tempo atrás, existiam apenas duas raças nesse Continente - os elfos verdes e roxos. As raças viviam em eterno conflito, e possuíam um grande ódio entre si.",
 

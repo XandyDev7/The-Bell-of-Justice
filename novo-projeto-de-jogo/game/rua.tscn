@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://dvbqc0uq2xmd4"]
+
+[ext_resource type="Script" uid="uid://c0uplnk0kbdau" path="res://game/rua.gd" id="1_h07ps"]
+[ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_ttbu6"]
+[ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_h07ps"]
+[ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_vxlp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(655, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(653, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
+size = Vector2(29, 777)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
+size = Vector2(24, 803)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eujrb"]
+size = Vector2(122.229, 108.9764)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyt1"]
+size = Vector2(108.54356, 123.73004)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttbu6"]
+size = Vector2(115.78438, 117.505356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6me2n"]
+size = Vector2(123.407265, 130.14008)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl48q"]
+size = Vector2(133.23238, 141.65103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18aeo"]
+size = Vector2(121.401924, 116.70751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h07ps"]
+size = Vector2(143.86043, 133.48015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxlp5"]
+size = Vector2(132.54996, 128.64696)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfc8t"]
+size = Vector2(112, 54)
+
+[node name="rua" type="Node2D" unique_id=136420949]
+script = ExtResource("1_h07ps")
+
+[node name="piso" type="ColorRect" parent="." unique_id=1298592773]
+offset_top = -6.0
+offset_right = 639.0
+offset_bottom = 769.0
+color = Color(0.110950954, 0.03927645, 0.011325774, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
+
+[node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
+position = Vector2(320.5, -5)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
+position = Vector2(333, 780)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
+position = Vector2(-10, 396.5)
+shape = SubResource("RectangleShape2D_slf6f")
+
+[node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
+position = Vector2(651, 397.5)
+shape = SubResource("RectangleShape2D_ithms")
+
+[node name="Portas" type="Node2D" parent="." unique_id=2084145023]
+
+[node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_ttbu6")]
+position = Vector2(289, 51)
+cena_destino = "uid://c55hy4wlm5hfd"
+spawn_destino = "entrada"
+
+[node name="portarua6" parent="Portas" unique_id=2117550468 instance=ExtResource("1_ttbu6")]
+position = Vector2(107, 457)
+cena_destino = "uid://c2e8r3aha2ave"
+spawn_destino = "entrada"
+
+[node name="portarua7" parent="Portas" unique_id=716036899 instance=ExtResource("1_ttbu6")]
+position = Vector2(536, 470)
+cena_destino = "uid://c7tk5o0jibqm3"
+spawn_destino = "entrada"
+
+[node name="portarua9" parent="Portas" unique_id=1595824087 instance=ExtResource("1_ttbu6")]
+position = Vector2(135, 673)
+cena_destino = "uid://cuvoyvemiguy2"
+spawn_destino = "entrada"
+
+[node name="portarua8" parent="Portas" unique_id=2008336837 instance=ExtResource("1_ttbu6")]
+position = Vector2(512, 682)
+cena_destino = "uid://cw2ow8ejoavnd"
+spawn_destino = "entrada"
+
+[node name="portarua2" parent="Portas" unique_id=478860235 instance=ExtResource("1_ttbu6")]
+position = Vector2(105, 127)
+cena_destino = "uid://bty64y18y1glt"
+spawn_destino = "entrada"
+
+[node name="portarua3" parent="Portas" unique_id=529609040 instance=ExtResource("1_ttbu6")]
+position = Vector2(520, 279)
+cena_destino = "uid://cfyhc0l5gctrl"
+spawn_destino = "entrada"
+
+[node name="portarua5" parent="Portas" unique_id=1206007151 instance=ExtResource("1_ttbu6")]
+position = Vector2(111, 280)
+cena_destino = "uid://2ewxtg4knav"
+spawn_destino = "entrada"
+
+[node name="portarua4" parent="Portas" unique_id=264628435 instance=ExtResource("1_ttbu6")]
+position = Vector2(516, 109)
+cena_destino = "uid://x4tq2686db6l"
+spawn_destino = "entrada"
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
+
+[node name="casa_sala" type="Marker2D" parent="Spawns" unique_id=1246974021]
+position = Vector2(287, 81)
+
+[node name="hospital" type="Marker2D" parent="Spawns" unique_id=252847946]
+position = Vector2(480, 282)
+
+[node name="banco" type="Marker2D" parent="Spawns" unique_id=1600136446]
+position = Vector2(498, 472)
+
+[node name="loja_variedades" type="Marker2D" parent="Spawns" unique_id=120589591]
+position = Vector2(141, 456)
+
+[node name="guns" type="Marker2D" parent="Spawns" unique_id=1200233630]
+position = Vector2(471, 109)
+
+[node name="cadeia" type="Marker2D" parent="Spawns" unique_id=1891146793]
+position = Vector2(171, 672)
+
+[node name="trem" type="Marker2D" parent="Spawns" unique_id=1222254600]
+position = Vector2(481, 684)
+
+[node name="igreja" type="Marker2D" parent="Spawns" unique_id=1534792506]
+position = Vector2(139, 129)
+
+[node name="bar" type="Marker2D" parent="Spawns" unique_id=1395594171]
+position = Vector2(147, 283)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
+script = ExtResource("3_vxlp5")
+
+[node name="Moveis" type="Node2D" parent="." unique_id=1546397086]
+
+[node name="Balcao" type="StaticBody2D" parent="Moveis" unique_id=940746427]
+position = Vector2(320, 150)
+
+[node name="ColorRect" type="ColorRect" parent="Moveis/Balcao" unique_id=915784543]
+offset_left = -191.00002
+offset_top = 71.0
+offset_right = -62.063858
+offset_bottom = 180.26518
+rotation = 1.5515977
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(1, 1, 0.42352942, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1482807757]
+position = Vector2(246.49341, -40.93978)
+rotation = -0.006981317
+shape = SubResource("RectangleShape2D_eujrb")
+
+[node name="ColorRect3" type="ColorRect" parent="Moveis/Balcao" unique_id=835122981]
+offset_left = 182.77113
+offset_top = -94.35385
+offset_right = 307.1493
+offset_bottom = -1.2515564
+rotation = 0.029670598
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.36207703, 0.36207703, 0.362077, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Moveis/Balcao" unique_id=257292969]
+offset_left = -83.00001
+offset_top = -144.0
+offset_right = 25.570549
+offset_bottom = -98.10837
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Moveis/Balcao" unique_id=277268110]
+offset_left = -313.00003
+offset_top = 252.0
+offset_right = -199.41096
+offset_bottom = 352.83966
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Moveis/Balcao" unique_id=1459373332]
+offset_left = 196.99997
+offset_top = 267.0
+offset_right = 310.58905
+offset_bottom = 367.83966
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="Moveis/Balcao" unique_id=1617430098]
+offset_left = -307.0
+offset_top = 458.00003
+offset_right = -172.75446
+offset_bottom = 572.1766
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Moveis/Balcao" unique_id=2006050908]
+offset_left = 173.99997
+offset_top = 474.00003
+offset_right = 287.58905
+offset_bottom = 574.8397
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1981297045]
+position = Vector2(-254, -22)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_tiyt1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=341302796]
+position = Vector2(-254.1554, 308.51944)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_ttbu6")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=184927273]
+position = Vector2(263.0785, 322.99243)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_6me2n")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1276338631]
+position = Vector2(-236.71115, 525.12024)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_dl48q")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=723491057]
+position = Vector2(233.22394, 532.7079)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_18aeo")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=114070791]
+position = Vector2(244.7594, 136.53745)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_h07ps")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1783751550]
+position = Vector2(-253.85924, 138.72241)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_vxlp5")
+
+[node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=237795098]
+offset_left = -314.0
+offset_top = -78.0
+offset_right = -193.0
+offset_bottom = 31.0
+color = Color(0.9828206, 0.93538034, 0.9669042, 0.33333334)
+
+[node name="ColorRect5" type="ColorRect" parent="Moveis/Balcao" unique_id=1503828483]
+offset_left = 178.0
+offset_top = 65.0
+offset_right = 312.0
+offset_bottom = 209.0
+color = Color(0.9828206, 0.93538034, 0.9669042, 0.33333334)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=2072270116]
+position = Vector2(-27, -117)
+shape = SubResource("RectangleShape2D_kfc8t")
+
+[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_h07ps")]
+position = Vector2(292, 95)

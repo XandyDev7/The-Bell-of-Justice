@@ -79,7 +79,7 @@ animations = [{
 size = Vector2(11, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(28.5, 53)
+size = Vector2(200, 176)
 
 [node name="npc" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
 script = ExtResource("1_df5ka")
@@ -93,16 +93,16 @@ position = Vector2(12.8, -2.8333309)
 scale = Vector2(0.77500004, 0.7673611)
 sprite_frames = SubResource("SpriteFrames_0eb53")
 animation = &"idle"
-frame_progress = 0.30854225
+frame_progress = 0.85859036
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
-position = Vector2(10.5, 15.5)
+position = Vector2(11, 16)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
-position = Vector2(10.75, -1)
+position = Vector2(3, 27)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Label" type="Label" parent="." unique_id=782062345]

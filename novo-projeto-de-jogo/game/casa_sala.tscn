@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c55hy4wlm5hfd"]
 
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_33m2j"]
+[ext_resource type="Script" uid="uid://dw7njkhrjh65w" path="res://game/casa_sala.gd" id="1_eujrb"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_eujrb"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_tiyt1"]
 
@@ -16,7 +17,17 @@ size = Vector2(24, 280)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
 size = Vector2(24, 280)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eujrb"]
+size = Vector2(171.16338, 49.578262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyt1"]
+size = Vector2(96.01162, 33.831337)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33m2j"]
+size = Vector2(85.31617, 33.831337)
+
 [node name="CasaSala" type="Node2D" unique_id=136420949]
+script = ExtResource("1_eujrb")
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
 offset_left = 120.0
@@ -47,9 +58,10 @@ shape = SubResource("RectangleShape2D_ithms")
 
 [node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_33m2j")]
 position = Vector2(320, 308)
-spawn_destino = "casa_bell"
+cena_destino = "uid://dvbqc0uq2xmd4"
 
 [node name="portaescadas" parent="Portas" unique_id=35083883 instance=ExtResource("1_33m2j")]
+position = Vector2(145, 56)
 cena_destino = "casa_corredor.tscn"
 spawn_destino = "escadas"
 
@@ -63,6 +75,51 @@ position = Vector2(160, 110)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_eujrb")]
 position = Vector2(320, 260)
+velocidade = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
 script = ExtResource("3_tiyt1")
+
+[node name="Moveis" type="Node2D" parent="." unique_id=1546397086]
+
+[node name="Balcao" type="StaticBody2D" parent="Moveis" unique_id=940746427]
+position = Vector2(320, 150)
+
+[node name="ColorRect" type="ColorRect" parent="Moveis/Balcao" unique_id=915784543]
+offset_left = -103.99998
+offset_top = -35.0
+offset_right = -11.579681
+offset_bottom = -7.0
+rotation = 1.5515977
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1482807757]
+position = Vector2(-179.77165, 7.589157)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_eujrb")
+
+[node name="ColorRect3" type="ColorRect" parent="Moveis/Balcao" unique_id=835122981]
+offset_left = -155.99998
+offset_top = -79.0
+offset_right = 9.138779
+offset_bottom = -40.36084
+rotation = 1.5917403
+scale = Vector2(1.0330955, 1.1605614)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1981297045]
+position = Vector2(-120, 14)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_tiyt1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=573254454]
+position = Vector2(167.04529, 11.485718)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_33m2j")
+
+[node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=237795098]
+offset_left = 148.0
+offset_top = -36.0
+offset_right = 183.0
+offset_bottom = 64.0
+color = Color(0, 0.45147526, 0.45161676, 1)

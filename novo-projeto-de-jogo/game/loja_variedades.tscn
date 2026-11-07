@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c2e8r3aha2ave"]
+
+[ext_resource type="Script" uid="uid://dsf1jpehr6r3a" path="res://game/loja_variedades.gd" id="1_4kkq5"]
+[ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_bxj6u"]
+[ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_4kkq5"]
+[ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_yggle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(448, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(448, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
+size = Vector2(24, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
+size = Vector2(24, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6qfi"]
+size = Vector2(238.68251, 28.891834)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xchpb"]
+size = Vector2(108.10063, 21.013063)
+
+[node name="Loja_variedades" type="Node2D" unique_id=136420949]
+script = ExtResource("1_4kkq5")
+
+[node name="piso" type="ColorRect" parent="." unique_id=1298592773]
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 520.0
+offset_bottom = 320.0
+color = Color(0.23137255, 0.1882353, 0.15686275, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
+
+[node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
+position = Vector2(320, 28)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
+position = Vector2(320, 332)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
+position = Vector2(108, 180)
+shape = SubResource("RectangleShape2D_slf6f")
+
+[node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
+position = Vector2(532, 180)
+shape = SubResource("RectangleShape2D_ithms")
+
+[node name="Portas" type="Node2D" parent="." unique_id=2084145023]
+
+[node name="PortaSaida" parent="Portas" unique_id=263886491 instance=ExtResource("1_bxj6u")]
+position = Vector2(320, 308)
+cena_destino = "uid://dvbqc0uq2xmd4"
+spawn_destino = "loja_variedades"
+
+[node name="Portacorredor" parent="Portas" unique_id=2117550468 instance=ExtResource("1_bxj6u")]
+position = Vector2(342, 54)
+cena_destino = "uid://clgb5444yrbxu"
+spawn_destino = "loja_variedades"
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
+
+[node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
+position = Vector2(320, 260)
+
+[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_4kkq5")]
+position = Vector2(320, 260)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
+script = ExtResource("3_yggle")
+
+[node name="Moveis" type="Node2D" parent="." unique_id=25002984]
+
+[node name="Balcao" type="StaticBody2D" parent="Moveis" unique_id=1732916857]
+position = Vector2(320, 150)
+
+[node name="ColorRect" type="ColorRect" parent="Moveis/Balcao" unique_id=853486706]
+offset_left = -134.64615
+offset_top = -86.59203
+offset_right = 102.88377
+offset_bottom = -58.592033
+rotation = 1.5934856
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1847951933]
+position = Vector2(-151.31696, 31.321503)
+rotation = 1.5969763
+shape = SubResource("RectangleShape2D_e6qfi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=633683444]
+position = Vector2(149.04349, -100.977806)
+rotation = -3.132866
+shape = SubResource("RectangleShape2D_xchpb")
+
+[node name="prateleira" type="ColorRect" parent="Moveis/Balcao" unique_id=1361262462]
+offset_left = 95.0
+offset_top = -112.0
+offset_right = 200.0
+offset_bottom = -91.0
+color = Color(0.29954746, 0.29954746, 0.29954743, 1)

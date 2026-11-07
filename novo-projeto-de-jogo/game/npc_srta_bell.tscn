@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dqstvckaa4mcp"]
+
+[ext_resource type="PackedScene" uid="uid://uhgu7q44iyp3" path="res://game/npc.tscn" id="1_n6tf0"]
+[ext_resource type="Texture2D" uid="uid://cqwsdngq2otp2" path="res://mrs bell/sprite_0.png" id="2_imoyx"]
+[ext_resource type="Texture2D" uid="uid://cf8lxmo1wd2mk" path="res://mrs bell/sprite_1.png" id="3_u6aw6"]
+[ext_resource type="Texture2D" uid="uid://c763wijfkuep4" path="res://mrs bell/sprite_2.png" id="4_of4jo"]
+[ext_resource type="Texture2D" uid="uid://buwyqi2p6yis6" path="res://mrs bell/sprite_3.png" id="5_nrfva"]
+[ext_resource type="Texture2D" uid="uid://drnouqkqg3r7a" path="res://mrs bell/sprite_4.png" id="6_7mbra"]
+[ext_resource type="Texture2D" uid="uid://5nuq2imkfers" path="res://mrs bell/sprite_5.png" id="7_m4c1f"]
+[ext_resource type="Texture2D" uid="uid://dxt6m7t3mikoe" path="res://mrs bell/sprite_6.png" id="8_ednrk"]
+[ext_resource type="Texture2D" uid="uid://cv8p8a3c8jmgm" path="res://mrs bell/sprite_7.png" id="9_dcitk"]
+[ext_resource type="Texture2D" uid="uid://dmg8r6i6qes6l" path="res://mrs bell/sprite_8.png" id="10_w0kvi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_go6qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imoyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u6aw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_of4jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrfva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7mbra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m4c1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ednrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dcitk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_w0kvi")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imoyx"]
+size = Vector2(20, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6tf0"]
+size = Vector2(29, 43)
+
+[node name="npc" unique_id=944284622 instance=ExtResource("1_n6tf0")]
+conversa_id = "srta_bell_1"
+
+[node name="Sprite2D" parent="." index="0" unique_id=478811451]
+position = Vector2(11, -2)
+sprite_frames = SubResource("SpriteFrames_go6qf")
+frame_progress = 0.31887326
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1488455937]
+position = Vector2(10, -9.25)
+shape = SubResource("RectangleShape2D_imoyx")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1848520466) index="0" unique_id=1975933314]
+position = Vector2(16.5, -11.5)
+shape = SubResource("RectangleShape2D_n6tf0")
+
+[node name="Label" parent="." index="3" unique_id=782062345]
+offset_left = -177.0
+offset_top = -75.0
+offset_right = -176.0
+offset_bottom = -30.0
+text = ""

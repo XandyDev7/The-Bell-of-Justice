@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://xwixrswlvkiq"]
 
 [ext_resource type="Script" uid="uid://cgbjajieeephw" path="res://game/scripts/botton.gd" id="1_jxtvb"]
-[ext_resource type="Texture2D" uid="uid://cmvjotrjr0hn2" path="res://game/images.png" id="2_b6xtv"]
 [ext_resource type="FontFile" uid="uid://bgtofaxesep53" path="res://game/Matcha World.otf" id="3_tbpic"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0eb53"]
-texture = ExtResource("2_b6xtv")
-modulate_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+modulate_color = Color(0.7146291, 0.71462905, 0.7146292, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0eb53"]
 bg_color = Color(0.9998706, 0.9906618, 0.9376568, 0.9529412)
@@ -95,7 +93,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_tbpic")
 theme_override_font_sizes/font_size = 25
-text = "xps gameshow"
+text = "The Bell of justice
+"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]

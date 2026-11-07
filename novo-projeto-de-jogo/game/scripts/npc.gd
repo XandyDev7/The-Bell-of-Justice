@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @export var conversa_id := "vendedor_1"
-@export var mostrar_dica := true     # desligue para NPCs sem dica de "Z"
+@export var mostrar_dica := true     
 @export var zona: Area2D
 @export var dica: Label
 @export var sprite: AnimatedSprite2D
@@ -18,9 +18,8 @@ func _ready() -> void:
 		if frames:
 			sprite.sprite_frames = frames
 			_tocar_animacao()
-	# a zona só DETECTA o jogador: não é um objeto físico e não bloqueia nada
-	zona.collision_layer = 0      # ninguém "enxerga" a zona
-	zona.collision_mask = 1       # ela enxerga a camada 1 (o jogador)
+	zona.collision_layer = 0      
+	zona.collision_mask = 1       
 	zona.monitorable = false
 	zona.body_entered.connect(_on_corpo_entrou)
 	zona.body_exited.connect(_on_corpo_saiu)
@@ -69,7 +68,7 @@ func _tocar_animacao() -> void:
 	if sprite.sprite_frames.has_animation(animacao):
 		sprite.play(animacao)
 	else:
-		# se o nome não existe, toca a primeira animação que achar
+		# se o nome não existir, toca a primeira animação que achar
 		var nomes := sprite.sprite_frames.get_animation_names()
 		if nomes.size() > 0:
 			sprite.play(nomes[0])
