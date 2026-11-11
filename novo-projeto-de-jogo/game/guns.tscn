@@ -1,68 +1,57 @@
 [gd_scene format=3 uid="uid://x4tq2686db6l"]
 
-[ext_resource type="Script" uid="uid://cfwaa8hr2gaag" path="res://game/loja_armas.gd" id="1_4rg1u"]
+[ext_resource type="Script" uid="uid://cfwaa8hr2gaag" path="res://game/scripts/loja_armas.gd" id="1_4rg1u"]
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_e6qfi"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_dsjv0"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_4rg1u"]
+[ext_resource type="Texture2D" uid="uid://b3fm87usg0pmb" path="res://vArma/sprite_0.png" id="4_4kdix"]
 [ext_resource type="PackedScene" uid="uid://uhgu7q44iyp3" path="res://game/npc.tscn" id="4_dsjv0"]
+[ext_resource type="Texture2D" uid="uid://deb4r5xqxlwfv" path="res://sprite_0.png" id="5_1hjxx"]
+[ext_resource type="Texture2D" uid="uid://cf8uthsyg25fr" path="res://gun_scener/sprite_0.png" id="5_2hdoc"]
+[ext_resource type="Texture2D" uid="uid://cf3puunr46ok0" path="res://poker1/sprite_0.png" id="6_1hjxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(634, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(448, 24)
+size = Vector2(624, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(37, 383)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(50.25, 412)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6qfi"]
-size = Vector2(220, 28)
+size = Vector2(665, 28)
 
 [node name="guns" type="Node2D" unique_id=136420949]
 script = ExtResource("1_4rg1u")
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = 35.0
+offset_top = -3.0
+offset_right = 650.0
+offset_bottom = 344.0
 color = Color(0.23137255, 0.1882353, 0.15686275, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(320, -21)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(320, 332)
+position = Vector2(319, 351.5)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(0, 165.5)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(653.125, 154)
 shape = SubResource("RectangleShape2D_ithms")
-
-[node name="Portas" type="Node2D" parent="." unique_id=2084145023]
-
-[node name="PortaSaida" parent="Portas" unique_id=263886491 instance=ExtResource("1_e6qfi")]
-position = Vector2(320, 308)
-cena_destino = "uid://dvbqc0uq2xmd4"
-spawn_destino = "guns"
-
-[node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
-
-[node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
-position = Vector2(320, 260)
-
-[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_dsjv0")]
-position = Vector2(320, 260)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
 script = ExtResource("3_4rg1u")
@@ -73,34 +62,70 @@ script = ExtResource("3_4rg1u")
 position = Vector2(320, 150)
 
 [node name="ColorRect" type="ColorRect" parent="Moveis/Balcao" unique_id=853486706]
-offset_left = -200.0
-offset_top = -14.0
-offset_right = 200.0
-offset_bottom = 14.0
+offset_left = 335.0
+offset_top = -289.0
+offset_right = 735.0
+offset_bottom = -271.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1847951933]
+position = Vector2(-1.5, 42)
 shape = SubResource("RectangleShape2D_e6qfi")
 
 [node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=1279914761]
-offset_left = -199.0
-offset_top = 71.0
-offset_right = -191.0
-offset_bottom = 127.0
+offset_left = -504.0
+offset_top = 50.0
+offset_right = -491.0
+offset_bottom = 106.0
 color = Color(0, 0.45147526, 0.45161676, 1)
 
 [node name="ArmasParede" type="ColorRect" parent="Moveis" unique_id=1361262462]
-offset_left = 160.0
-offset_top = 42.0
-offset_right = 480.0
-offset_bottom = 56.0
+offset_left = -764.0
+offset_top = 27.0
+offset_right = -444.0
+offset_bottom = 41.0
 color = Color(0.29954746, 0.29954746, 0.29954743, 1)
 
 [node name="portafundo" type="ColorRect" parent="Moveis" unique_id=477085983]
-offset_left = 120.0
-offset_top = 39.0
-offset_right = 140.0
-offset_bottom = 57.0
+offset_left = -512.0
+offset_top = 11.0
+offset_right = -492.0
+offset_bottom = 29.0
 color = Color(0.3314517, 0.19185165, 0.05879025, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=290480153]
+position = Vector2(329, 162.25002)
+scale = Vector2(3.43, 1.8325)
+texture = ExtResource("4_4kdix")
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=934898055]
+position = Vector2(613, 112)
+scale = Vector2(0.43937498, 0.5875)
+texture = ExtResource("5_1hjxx")
+
+[node name="Sprite1" type="Sprite2D" parent="." unique_id=1879758781]
+position = Vector2(290, 174)
+scale = Vector2(1, 0.85)
+texture = ExtResource("6_1hjxx")
+
+[node name="Sprite0" type="Sprite2D" parent="." unique_id=753026930]
+position = Vector2(290, 26.999992)
+scale = Vector2(0.7950001, 0.525)
+texture = ExtResource("5_2hdoc")
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
+
+[node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
+position = Vector2(268, 326)
+
+[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_dsjv0")]
+position = Vector2(257, 281)
+
 [node name="npc" parent="." unique_id=944284622 instance=ExtResource("4_dsjv0")]
-position = Vector2(315, 115)
+position = Vector2(306, 128)
+
+[node name="Portas" type="Node2D" parent="." unique_id=2084145023]
+
+[node name="PortaSaida" parent="Portas" unique_id=263886491 instance=ExtResource("1_e6qfi")]
+position = Vector2(268, 346)
+cena_destino = "uid://dvbqc0uq2xmd4"
+spawn_destino = "guns"

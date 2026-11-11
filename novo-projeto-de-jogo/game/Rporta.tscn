@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dn7r35vyfgg2a"]
+
+[ext_resource type="Script" uid="uid://brv1xfyh540gr" path="res://game/scripts/porta.gd" id="1_urlww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(48, 24)
+
+[node name="porta" type="Area2D" unique_id=2117550468]
+script = ExtResource("1_urlww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=878174262]
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1399143059]
+offset_left = -109.0
+offset_top = -12.0
+offset_right = 77.0
+offset_bottom = 12.0
+color = Color(0.9900245, 0.91243804, 0.26446912, 1)

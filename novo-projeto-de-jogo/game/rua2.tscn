@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bgplfsam6r1rd"]
+
+[ext_resource type="Script" uid="uid://c0uplnk0kbdau" path="res://game/scripts/rua.gd" id="1_qjffj"]
+[ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="2_5s2ls"]
+[ext_resource type="PackedScene" uid="uid://8atpn53ifuqt" path="res://game/rporta2.tscn" id="7_tofgl"]
+[ext_resource type="Texture2D" uid="uid://d0jo6tjhgbq7g" path="res://WhatsApp Image 2026-11-08 at 16.36.37.jpeg" id="8_01uia"]
+[ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="9_ua72n"]
+[ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="10_3du0i"]
+[ext_resource type="Script" uid="uid://dxafoyb5nlsad" path="res://game/scripts/porta_interativa.gd" id="11_ef1dk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(888, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(1016.5, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
+size = Vector2(52.75, 1193.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
+size = Vector2(30, 1188.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6me2n"]
+size = Vector2(116.983185, 283.52036)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h07ps"]
+size = Vector2(135.20766, 250.10031)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfc8t"]
+size = Vector2(288, 203)
+
+[node name="rua2" type="Node2D" unique_id=136420949]
+script = ExtResource("1_qjffj")
+requisitos = Array[String](["grupo_casa_bell"])
+cena_de_volta = "casa"
+spawn_de_volta = "entrada"
+
+[node name="piso" type="ColorRect" parent="." unique_id=1298592773]
+offset_top = -1.0
+offset_right = 1449.0
+offset_bottom = 1139.0
+color = Color(0.110950954, 0.03927645, 0.011325774, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
+
+[node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
+position = Vector2(386, -17)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
+position = Vector2(503, 359)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
+position = Vector2(-27, 591)
+shape = SubResource("RectangleShape2D_slf6f")
+
+[node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
+position = Vector2(653, 440)
+shape = SubResource("RectangleShape2D_ithms")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
+script = ExtResource("2_5s2ls")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=877363329]
+position = Vector2(319, 176)
+scale = Vector2(0.99999994, 1.1403787)
+texture = ExtResource("8_01uia")
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
+
+[node name="banco" type="Marker2D" parent="Spawns" unique_id=1600136446]
+position = Vector2(361, 60)
+
+[node name="loja_variedades" type="Marker2D" parent="Spawns" unique_id=120589591]
+position = Vector2(267, 41)
+
+[node name="rua2" type="Marker2D" parent="Spawns" unique_id=1868076460]
+position = Vector2(320, 11)
+
+[node name="cadeia" type="Marker2D" parent="Spawns" unique_id=1891146793]
+position = Vector2(247, 159)
+
+[node name="trem" type="Marker2D" parent="Spawns" unique_id=1222254600]
+position = Vector2(355, 170)
+
+[node name="Moveis" type="Node2D" parent="." unique_id=1546397086]
+
+[node name="Balcao" type="StaticBody2D" parent="Moveis" unique_id=940746427]
+position = Vector2(320, 150)
+
+[node name="ColorRect7" type="ColorRect" parent="Moveis/Balcao" unique_id=1459373332]
+offset_left = 436.99997
+offset_top = 453.00003
+offset_right = 550.58905
+offset_bottom = 553.8397
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Moveis/Balcao" unique_id=2006050908]
+offset_left = 580.0
+offset_top = 828.0001
+offset_right = 693.5891
+offset_bottom = 928.83984
+rotation = -0.0052359877
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=184927273]
+position = Vector2(-223.94763, -95.50037)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_6me2n")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=114070791]
+position = Vector2(-214.00684, -23.59845)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_h07ps")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=2072270116]
+position = Vector2(216, -52.5)
+shape = SubResource("RectangleShape2D_kfc8t")
+
+[node name="Player" parent="." unique_id=1380536196 instance=ExtResource("9_ua72n")]
+position = Vector2(333, 227)
+
+[node name="Portas" type="Node2D" parent="." unique_id=2084145023]
+
+[node name="portarua6" parent="Portas" unique_id=2117550468 instance=ExtResource("10_3du0i")]
+position = Vector2(239, 36)
+cena_destino = "uid://c2e8r3aha2ave"
+spawn_destino = "entrada"
+
+[node name="portarua7" parent="Portas" unique_id=716036899 instance=ExtResource("10_3du0i")]
+position = Vector2(390, 58)
+cena_destino = "uid://c7tk5o0jibqm3"
+spawn_destino = "entrada"
+
+[node name="portarua9" parent="Portas" unique_id=1595824087 instance=ExtResource("10_3du0i")]
+position = Vector2(392, 168)
+cena_destino = "uid://cbpi35ag63ik"
+spawn_destino = "entrada"
+
+[node name="portarua8" parent="Portas" unique_id=2008336837 instance=ExtResource("10_3du0i")]
+position = Vector2(218, 160)
+script = ExtResource("11_ef1dk")
+cena_destino = "uid://cuvoyvemiguy2"
+spawn_destino = "entrada"
+flag_ativa = ""
+requisito = ""
+conversa_sem_requisito = ""
+conversa_ao_abrir = "cadeia_porta"
+flag_ja_aberta = "cadeia_destrancada"
+posicao_dica = Vector2(-6, -44)
+
+[node name="porta" parent="." unique_id=1113314892 instance=ExtResource("7_tofgl")]
+position = Vector2(298, -5)
+cena_destino = "uid://dvbqc0uq2xmd4"
+spawn_destino = "entrada"

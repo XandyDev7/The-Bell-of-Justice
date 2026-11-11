@@ -17,10 +17,12 @@ var data: Array = []
 var _id := 0
 var _progresso := 0.0
 var _digitando := false
+var _tempo_auto := -1.0        # contagem para a fala passar sozinha
+var _encerrando := false
 
 var _painel: PanelContainer = null
 var _opcoes_ativas := false
-var _retornos: Array = []      
+var _retornos: Array = []      # para voltar ao menu depois de uma resposta
 var _usadas := {}              
 
 
@@ -35,6 +37,7 @@ func _ready() -> void:
 
 func _mostrar_fala(instantaneo := false) -> void:
 	_fechar_opcoes()
+	_tempo_auto = -1.0
 	var fala: Dictionary = data[_id]
 	_name.text = fala.get("title", "")
 	_dialog.text = fala.get("dialog", "")
@@ -47,6 +50,9 @@ func _mostrar_fala(instantaneo := false) -> void:
 		if caminho != "":
 			push_warning("Retrato não encontrado: '" + caminho + "'")
 
+	if not instantaneo:
+		_aplicar_efeitos(fala)
+
 	_dialog.visible_characters = 0
 	_progresso = 0.0
 	_digitando = true
@@ -54,25 +60,49 @@ func _mostrar_fala(instantaneo := false) -> void:
 		_terminar_digitacao()
 
 
+func _aplicar_efeitos(fala: Dictionary) -> void:
+	if fala.has("som"):
+		Audio.tocar(str(fala["som"]))
+	if fala.has("flag"):
+		for f in _como_lista(fala["flag"]):
+			Estado.marcar(str(f))
+	if fala.has("item"):
+		for i in _como_lista(fala["item"]):
+			Estado.pegar_item(str(i))
+
+
+func _como_lista(valor: Variant) -> Array:
+	if valor is Array:
+		return valor
+	return [valor]
+
+
 func _process(delta: float) -> void:
-	if not _digitando:
-		return
-	_progresso += CARACTERES_POR_SEGUNDO * delta
-	_dialog.visible_characters = int(_progresso)
-	if _progresso >= _dialog.get_total_character_count():
-		_terminar_digitacao()
+	if _digitando:
+		_progresso += CARACTERES_POR_SEGUNDO * delta
+		_dialog.visible_characters = int(_progresso)
+		if _progresso >= _dialog.get_total_character_count():
+			_terminar_digitacao()
+	elif _tempo_auto >= 0.0:
+		_tempo_auto -= delta
+		if _tempo_auto < 0.0:
+			_tempo_auto = -1.0
+			_proxima_fala()
 
 
 func _terminar_digitacao() -> void:
 	_dialog.visible_characters = -1
 	_digitando = false
-	if data[_id].has("opcoes"):
-		_mostrar_opcoes(data[_id]["opcoes"])
+	var fala: Dictionary = data[_id]
+	if fala.has("opcoes"):
+		_mostrar_opcoes(fala["opcoes"])
+	elif fala.has("auto"):
+		_tempo_auto = float(fala["auto"])
 
 
 func _input(event: InputEvent) -> void:
-	if _opcoes_ativas:
-		return    
+	if _opcoes_ativas or _encerrando:
+		return   
 	if not event.is_action_pressed("ui_accept") or event.is_echo():
 		return
 	get_viewport().set_input_as_handled()
@@ -83,18 +113,33 @@ func _input(event: InputEvent) -> void:
 
 
 func _proxima_fala() -> void:
+	if _encerrando:
+		return
+	_tempo_auto = -1.0
 	_id += 1
 	if _id >= data.size():
 		if _retornos.is_empty():
 			_encerrar()
 		else:
-			
 			var r: Dictionary = _retornos.pop_back()
 			data = r["data"]
 			_id = r["id"]
 			_mostrar_fala(true)
 	else:
 		_mostrar_fala()
+
+
+
+func _opcao_disponivel(op: Dictionary) -> bool:
+	var requer: String = op.get("requer", "")
+	if requer != "" and not Estado.tem(requer):
+		return false
+	var oculta: String = op.get("oculta_se", "")
+	if oculta != "" and Estado.tem(oculta):
+		return false
+	if op.get("uma_vez", false) and _usadas.has(op.get("texto", "")):
+		return false
+	return true
 
 
 func _mostrar_opcoes(lista: Array) -> void:
@@ -105,14 +150,12 @@ func _mostrar_opcoes(lista: Array) -> void:
 	var primeiro: Button = null
 
 	for op in lista:
-		var exigida: String = op.get("requer", "")
-		if exigida != "" and not Estado.tem(exigida):
-			continue
-		if op.get("uma_vez", false) and _usadas.has(op.get("texto", "")):
+		if not _opcao_disponivel(op):
 			continue
 		var b := Button.new()
 		b.text = op.get("texto", "...")
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_estilizar(b)
 		b.pressed.connect(_escolher.bind(op))
 		caixa.add_child(b)
 		if primeiro == null:
@@ -125,6 +168,7 @@ func _mostrar_opcoes(lista: Array) -> void:
 
 	_painel = PanelContainer.new()
 	_painel.custom_minimum_size.x = 240.0
+	_painel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	_painel.add_child(caixa)
 	add_child(_painel)
 	_opcoes_ativas = true
@@ -144,9 +188,12 @@ func _escolher(op: Dictionary) -> void:
 	_fechar_opcoes()
 	_usadas[op.get("texto", "")] = true
 
-	var flag: String = op.get("flag", "")
-	if flag != "":
-		Estado.marcar(flag)
+	if op.has("flag"):
+		for f in _como_lista(op["flag"]):
+			Estado.marcar(str(f))
+	if op.has("item"):
+		for i in _como_lista(op["item"]):
+			Estado.pegar_item(str(i))
 
 	var destino: String = op.get("conversa", "")
 	if destino == "":
@@ -172,6 +219,40 @@ func _fechar_opcoes() -> void:
 		_painel = null
 
 
+
+func _estilo(fundo: Color, borda: Color) -> StyleBoxFlat:
+	var s := StyleBoxFlat.new()
+	s.bg_color = fundo
+	s.border_color = borda
+	s.set_border_width_all(3)
+	s.set_corner_radius_all(10)
+	s.content_margin_left = 14
+	s.content_margin_right = 14
+	s.content_margin_top = 8
+	s.content_margin_bottom = 8
+	return s
+
+
+func _estilizar(b: Button) -> void:
+	var normal := _estilo(Color.WHITE, Color.BLACK)
+	var destaque := _estilo(Color(0.86, 0.83, 0.95), Color(0.36, 0.25, 0.65))
+
+	b.add_theme_stylebox_override("normal", normal)
+	b.add_theme_stylebox_override("hover", destaque)
+	b.add_theme_stylebox_override("focus", destaque)
+	b.add_theme_stylebox_override("pressed", destaque)
+
+	b.add_theme_color_override("font_color", Color.BLACK)
+	b.add_theme_color_override("font_hover_color", Color(0.36, 0.25, 0.65))
+	b.add_theme_color_override("font_focus_color", Color(0.36, 0.25, 0.65))
+	b.add_theme_color_override("font_pressed_color", Color(0.36, 0.25, 0.65))
+
+	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
 func _encerrar() -> void:
+	if _encerrando:
+		return
+	_encerrando = true
 	dialogo_terminado.emit()
 	queue_free()

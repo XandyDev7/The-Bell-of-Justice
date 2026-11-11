@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bggfd8sfhgulh"]
+
+[ext_resource type="Script" uid="uid://bpmusyvdwhljq" path="res://game/scripts/npc.gd" id="1_6tl3r"]
+[ext_resource type="Texture2D" uid="uid://cm4eb654ieql5" path="res://poker2/sprite_00.png" id="2_wms8w"]
+[ext_resource type="Texture2D" uid="uid://bbms8u0dnryc" path="res://poker2/sprite_01.png" id="3_8m7ti"]
+[ext_resource type="Texture2D" uid="uid://co6eyfgqx1kkw" path="res://poker2/sprite_02.png" id="4_mrnqy"]
+[ext_resource type="Texture2D" uid="uid://bx8ph2tsx2euj" path="res://poker2/sprite_03.png" id="5_k6mwx"]
+[ext_resource type="Texture2D" uid="uid://cuqhcp7edm0r3" path="res://poker2/sprite_04.png" id="6_a7vt2"]
+[ext_resource type="Texture2D" uid="uid://e0h5d7aab5up" path="res://poker2/sprite_05.png" id="7_cbmfg"]
+[ext_resource type="Texture2D" uid="uid://dt4t670f6bvtt" path="res://poker2/sprite_06.png" id="8_viqc1"]
+[ext_resource type="Texture2D" uid="uid://5jja8yp2oeva" path="res://poker2/sprite_07.png" id="9_l34k6"]
+[ext_resource type="Texture2D" uid="uid://b4f2sqbv143nq" path="res://poker2/sprite_08.png" id="10_t27fc"]
+[ext_resource type="Texture2D" uid="uid://bbvugius8771r" path="res://poker2/sprite_09.png" id="11_1grhh"]
+[ext_resource type="Texture2D" uid="uid://ceq7wic6bxntx" path="res://poker2/sprite_10.png" id="12_o6xoy"]
+[ext_resource type="Texture2D" uid="uid://butj3fjwosqe4" path="res://poker2/sprite_11.png" id="13_fj2q7"]
+[ext_resource type="Texture2D" uid="uid://xq8kurkv2f3p" path="res://poker2/sprite_12.png" id="14_3h7u5"]
+[ext_resource type="Texture2D" uid="uid://cwrh28b6tum45" path="res://poker2/sprite_13.png" id="15_unsdd"]
+[ext_resource type="Texture2D" uid="uid://b3m42gcpylopf" path="res://poker2/sprite_14.png" id="16_lsmjo"]
+[ext_resource type="Texture2D" uid="uid://cnmajdmxqjuw" path="res://poker2/sprite_15.png" id="17_2t45i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wms8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8m7ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mrnqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k6mwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a7vt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cbmfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_viqc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l34k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t27fc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1grhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o6xoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fj2q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3h7u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_unsdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lsmjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2t45i")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(11, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(19, 47)
+
+[node name="poker2" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
+script = ExtResource("1_6tl3r")
+conversa_id = ""
+zona = NodePath("Area2D")
+dica = NodePath("")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(12.8, -2.8333309)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.8062191
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(11, 16)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(9.5, -2.5)
+shape = SubResource("RectangleShape2D_vanes")

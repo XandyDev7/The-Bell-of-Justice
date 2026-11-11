@@ -14,17 +14,28 @@
 [ext_resource type="Texture2D" uid="uid://dxrueutlrl7is" path="res://game/back/sprite_10.png" id="12_5oi55"]
 [ext_resource type="Texture2D" uid="uid://poevrpqowppp" path="res://game/back/sprite_11.png" id="13_851tj"]
 [ext_resource type="Texture2D" uid="uid://vk7xvyarigit" path="res://game/back/sprite_12.png" id="14_wom7p"]
+[ext_resource type="Texture2D" uid="uid://camg7xk06tx1g" path="res://game/player back walk/sprite_00.png" id="15_851tj"]
 [ext_resource type="Texture2D" uid="uid://dxk6jkvpp1wk0" path="res://game/cowbay_anmd/sprite_00.png" id="15_pbnxw"]
 [ext_resource type="Texture2D" uid="uid://duf1sb1gvwe50" path="res://game/cowbay_anmd/sprite_01.png" id="16_3co1e"]
+[ext_resource type="Texture2D" uid="uid://bw2maaldl34hg" path="res://game/player back walk/sprite_01.png" id="16_wom7p"]
 [ext_resource type="Texture2D" uid="uid://ciavkop2x3c2i" path="res://game/cowbay_anmd/sprite_02.png" id="17_o8ffn"]
+[ext_resource type="Texture2D" uid="uid://b8a08n4tjhm10" path="res://game/player back walk/sprite_02.png" id="17_pbnxw"]
+[ext_resource type="Texture2D" uid="uid://bgvctdsvlum7b" path="res://game/player back walk/sprite_03.png" id="18_3co1e"]
 [ext_resource type="Texture2D" uid="uid://bnm42wjkvwhvb" path="res://game/cowbay_anmd/sprite_03.png" id="18_avc72"]
 [ext_resource type="Texture2D" uid="uid://dhp5dr5fgvr46" path="res://game/cowbay_anmd/sprite_04.png" id="19_3v0xi"]
+[ext_resource type="Texture2D" uid="uid://ibls4fsunnrp" path="res://game/player back walk/sprite_04.png" id="19_o8ffn"]
 [ext_resource type="Texture2D" uid="uid://bf7ok1ymhtfhi" path="res://game/cowbay_anmd/sprite_05.png" id="20_8v3e1"]
+[ext_resource type="Texture2D" uid="uid://djnrwq5md3t66" path="res://game/player back walk/sprite_05.png" id="20_avc72"]
+[ext_resource type="Texture2D" uid="uid://debxv4n1um2di" path="res://game/player back walk/sprite_06.png" id="21_3v0xi"]
 [ext_resource type="Texture2D" uid="uid://m7jtx7ql3ut2" path="res://game/cowbay_anmd/sprite_06.png" id="21_obfi0"]
+[ext_resource type="Texture2D" uid="uid://0yb75ewnvhfq" path="res://game/player back walk/sprite_07.png" id="22_8v3e1"]
 [ext_resource type="Texture2D" uid="uid://bd0l7enuo37ky" path="res://game/cowbay_anmd/sprite_07.png" id="22_36uu1"]
+[ext_resource type="Texture2D" uid="uid://btqgn28dalai7" path="res://game/player back walk/sprite_08.png" id="23_obfi0"]
 [ext_resource type="Texture2D" uid="uid://dnsfhs8ol7h7h" path="res://game/cowbay_anmd/sprite_08.png" id="23_qnh4d"]
+[ext_resource type="Texture2D" uid="uid://co1sdkgr5obg7" path="res://game/player back walk/sprite_09.png" id="24_36uu1"]
 [ext_resource type="Texture2D" uid="uid://gbmno42johjw" path="res://game/cowbay_anmd/sprite_09.png" id="24_yubl8"]
 [ext_resource type="Texture2D" uid="uid://6vbkxohaxbdo" path="res://game/cowbay_anmd/sprite_10.png" id="25_a8hog"]
+[ext_resource type="Texture2D" uid="uid://6j1kh28wmhhi" path="res://game/player back walk/sprite_10.png" id="25_qnh4d"]
 [ext_resource type="Texture2D" uid="uid://dmqtrrm4nxd0o" path="res://game/cowbay_anmd/sprite_11.png" id="26_pgfuy"]
 [ext_resource type="Texture2D" uid="uid://bwtlir6rsdoax" path="res://game/cowbay_anmd/sprite_12.png" id="27_flwup"]
 [ext_resource type="Texture2D" uid="uid://xy1rovtb8axu" path="res://game/cowbay_anmd/sprite_13.png" id="28_mnxyy"]
@@ -139,6 +150,44 @@ animations = [{
 "loop": 1,
 "name": &"back",
 "speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_851tj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wom7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pbnxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3co1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_o8ffn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_avc72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3v0xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_8v3e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_obfi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_36uu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_qnh4d")
+}],
+"loop": 1,
+"name": &"back_walk",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -419,8 +468,9 @@ script = ExtResource("1_w5y0b")
 position = Vector2(6.999999, -5)
 scale = Vector2(0.7, 0.73333335)
 sprite_frames = SubResource("SpriteFrames_slf6f")
-animation = &"front_walk"
-frame_progress = 0.7828562
+animation = &"back_walk"
+frame = 3
+frame_progress = 0.8958333
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1424907301]
 position = Vector2(6.5, -4)

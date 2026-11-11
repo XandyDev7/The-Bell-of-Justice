@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://0c0djxd6dkgd"]
+
+[ext_resource type="Texture2D" uid="uid://d20pqgm4x7ukm" path="res://deathbell/sprite_0.png" id="2_cu1ah"]
+[ext_resource type="Script" uid="uid://cpeip5sepwfw6" path="res://game/scripts/interativo.gd" id="3_uxj1m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cu1ah")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(44, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(45, 26.25)
+
+[node name="deathbell" type="Area2D" unique_id=1026638960]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(17, 1)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.85859036
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(19, 5)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+script = ExtResource("3_uxj1m")
+conversa_id = "corpo_bell"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(19, 5.125)
+shape = SubResource("RectangleShape2D_vanes")

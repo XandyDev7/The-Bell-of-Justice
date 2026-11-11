@@ -1,77 +1,80 @@
 [gd_scene format=3 uid="uid://cw7agtctjtkdy"]
 
+[ext_resource type="Script" uid="uid://bfr111xvrgfy0" path="res://game/scripts/quartopais_variedades.gd" id="1_1pj7o"]
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_18aeo"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_8g0fk"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_1pj7o"]
+[ext_resource type="Script" uid="uid://cpeip5sepwfw6" path="res://game/scripts/interativo.gd" id="4_8g0fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(662, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(447, 23)
+size = Vector2(654, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(24, 374)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 363)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eujrb"]
-size = Vector2(83.98399, 101.15114)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n77hg"]
+size = Vector2(84, 101)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyt1"]
-size = Vector2(30.368816, 78.879395)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48xp5"]
+size = Vector2(68.75, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18aeo"]
-size = Vector2(38.13171, 40.978043)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a874"]
+size = Vector2(67.125, 97.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfc8t"]
-size = Vector2(54, 46)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d3je"]
+size = Vector2(134, 44)
 
 [node name="quarto_charlote" type="Node2D" unique_id=136420949]
+script = ExtResource("1_1pj7o")
+requisitos = Array[String](["chave_granger"])
+cena_de_volta = "uid://clgb5444yrbxu"
+spawn_de_volta = "entrada"
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 641.0
+offset_bottom = 359.0
 color = Color(0.110950954, 0.03927645, 0.011325774, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(316, -8)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(319.5, 331.5)
+position = Vector2(325, 364)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(-13, 187)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(653, 175.5)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
 
 [node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_18aeo")]
-position = Vector2(320, 308)
+position = Vector2(314, 346)
 cena_destino = "uid://clgb5444yrbxu"
-spawn_destino = "quarto_charlote"
+spawn_destino = "entrada"
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
 
-[node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
-position = Vector2(320, 260)
-
-[node name="escadas" type="Marker2D" parent="Spawns" unique_id=252847946]
-position = Vector2(160, 110)
+[node name="uu" type="Marker2D" parent="Spawns" unique_id=252847946]
+position = Vector2(314, 321)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_8g0fk")]
-position = Vector2(320, 260)
+position = Vector2(316, 279)
 velocidade = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
@@ -91,46 +94,61 @@ rotation = 1.5515977
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(1, 1, 0.42352942, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1482807757]
-position = Vector2(158, -60)
-rotation = -0.006981317
-shape = SubResource("RectangleShape2D_eujrb")
-
 [node name="ColorRect3" type="ColorRect" parent="Moveis/Balcao" unique_id=835122981]
-offset_left = 147.00002
-offset_top = -9.999999
-offset_right = 198.1185
-offset_bottom = 28.639164
+offset_left = 175.00002
+offset_top = 51.999992
+offset_right = 226.1185
+offset_bottom = 90.63916
 rotation = 0.029670598
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(0.36207703, 0.36207703, 0.362077, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Moveis/Balcao" unique_id=257292969]
-offset_left = -198.00003
-offset_top = 23.000008
-offset_right = -160.48105
-offset_bottom = 54.831806
+offset_left = -255.00003
+offset_top = -143.0
+offset_right = -128.86734
+offset_bottom = -111.168205
 rotation = 0.029670598
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(0.5582066, 0.26434046, 0.14101088, 1)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1981297045]
-position = Vector2(-161, -96)
-rotation = -1.5777776
-shape = SubResource("RectangleShape2D_tiyt1")
+[node name="ColorRect5" type="ColorRect" parent="Moveis/Balcao" unique_id=187176979]
+offset_left = -253.00003
+offset_top = 22.000004
+offset_right = -199.29703
+offset_bottom = 100.12987
+rotation = 0.029670598
+scale = Vector2(1.0330955, 1.1605614)
+color = Color(0.5582066, 0.26434046, 0.14101088, 1)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=341302796]
-position = Vector2(-179.48206, 42.069702)
-rotation = -1.5777776
-shape = SubResource("RectangleShape2D_18aeo")
+[node name="Area2D" type="Area2D" parent="Moveis" unique_id=848326864]
+script = ExtResource("4_8g0fk")
+conversa_id = "granger_cama"
 
-[node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=237795098]
-offset_left = -200.0
-offset_top = -110.0
-offset_right = -122.0
-offset_bottom = -81.0
-color = Color(0.9828206, 0.93538034, 0.9669042, 0.33333334)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Area2D" unique_id=714403240]
+position = Vector2(480, 85.5)
+shape = SubResource("RectangleShape2D_n77hg")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=2072270116]
-position = Vector2(173, 13)
-shape = SubResource("RectangleShape2D_kfc8t")
+[node name="Area2D2" type="Area2D" parent="Moveis" unique_id=420507937]
+script = ExtResource("4_8g0fk")
+conversa_id = "granger_mesa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Area2D2" unique_id=77286626]
+position = Vector2(524, 223)
+shape = SubResource("RectangleShape2D_48xp5")
+
+[node name="Area2D3" type="Area2D" parent="Moveis" unique_id=1642638435]
+script = ExtResource("4_8g0fk")
+conversa_id = "granger_bau"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Area2D3" unique_id=1801277423]
+position = Vector2(96, 218)
+shape = SubResource("RectangleShape2D_2a874")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1010389689]
+script = ExtResource("4_8g0fk")
+conversa_id = "granger_armario"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=197055339]
+position = Vector2(127, 27)
+shape = SubResource("RectangleShape2D_8d3je")

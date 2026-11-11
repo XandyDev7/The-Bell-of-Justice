@@ -43,7 +43,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [],
 "loop": 1,
@@ -55,27 +55,26 @@ animations = [{
 size = Vector2(20, 47.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6tf0"]
-size = Vector2(29, 43)
+size = Vector2(40, 57.5)
 
-[node name="npc" unique_id=944284622 instance=ExtResource("1_n6tf0")]
+[node name="srta_bell" unique_id=944284622 instance=ExtResource("1_n6tf0")]
 conversa_id = "srta_bell_1"
 
 [node name="Sprite2D" parent="." index="0" unique_id=478811451]
 position = Vector2(11, -2)
 sprite_frames = SubResource("SpriteFrames_go6qf")
-frame_progress = 0.31887326
+frame_progress = 0.11899925
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1488455937]
 position = Vector2(10, -9.25)
 shape = SubResource("RectangleShape2D_imoyx")
 
 [node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1848520466) index="0" unique_id=1975933314]
-position = Vector2(16.5, -11.5)
+position = Vector2(14, -9.75)
 shape = SubResource("RectangleShape2D_n6tf0")
 
 [node name="Label" parent="." index="3" unique_id=782062345]
-offset_left = -177.0
-offset_top = -75.0
-offset_right = -176.0
-offset_bottom = -30.0
-text = ""
+offset_left = 4.0
+offset_top = -79.0
+offset_bottom = -34.0
+text = "z"

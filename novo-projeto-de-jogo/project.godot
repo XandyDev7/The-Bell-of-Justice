@@ -19,15 +19,16 @@ config/icon="res://game/icon.svg"
 
 Dialogos="*uid://cqgv50ueokaw1"
 Estado="*uid://ttlno4dh5lv1"
+Audio="*uid://c0klkgv6evtw8"
+NewAutoloadScript="uid://yyf0m2kp5yah"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [input]

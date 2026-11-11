@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://c55hy4wlm5hfd"]
 
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_33m2j"]
-[ext_resource type="Script" uid="uid://dw7njkhrjh65w" path="res://game/casa_sala.gd" id="1_eujrb"]
+[ext_resource type="Script" uid="uid://cjygt5b4b837" path="res://game/scripts/sala.gd" id="1_eujrb"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_eujrb"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_tiyt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(635, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(448, 24)
+size = Vector2(668, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(18, 341)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 355)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eujrb"]
 size = Vector2(171.16338, 49.578262)
@@ -28,53 +28,56 @@ size = Vector2(85.31617, 33.831337)
 
 [node name="CasaSala" type="Node2D" unique_id=136420949]
 script = ExtResource("1_eujrb")
+som_ao_entrar = "porta_abrindo"
+conversa_ao_entrar = "inicio"
+flag_ao_entrar = "inicio_visto"
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = -2.0
+offset_right = 641.0
+offset_bottom = 360.0
 color = Color(0.110950954, 0.03927645, 0.011325774, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(325, 2)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(320, 332)
+position = Vector2(331, 359)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(9, 178.5)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(647, 166.5)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
 
 [node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_33m2j")]
-position = Vector2(320, 308)
+position = Vector2(327, 338)
 cena_destino = "uid://dvbqc0uq2xmd4"
+sempre_trancada = true
 
 [node name="portaescadas" parent="Portas" unique_id=35083883 instance=ExtResource("1_33m2j")]
-position = Vector2(145, 56)
-cena_destino = "casa_corredor.tscn"
+position = Vector2(56, 37)
+cena_destino = "uid://bsg0x4ajdcjtn"
 spawn_destino = "escadas"
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
 
 [node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
-position = Vector2(320, 260)
+position = Vector2(322, 306)
 
 [node name="escadas" type="Marker2D" parent="Spawns" unique_id=252847946]
-position = Vector2(160, 110)
+position = Vector2(97, 45)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_eujrb")]
-position = Vector2(320, 260)
+position = Vector2(313, 278)
 velocidade = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
@@ -95,15 +98,15 @@ scale = Vector2(1.0330955, 1.1605614)
 color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1482807757]
-position = Vector2(-179.77165, 7.589157)
+position = Vector2(-269, -8)
 rotation = -1.5777776
 shape = SubResource("RectangleShape2D_eujrb")
 
 [node name="ColorRect3" type="ColorRect" parent="Moveis/Balcao" unique_id=835122981]
-offset_left = -155.99998
-offset_top = -79.0
-offset_right = 9.138779
-offset_bottom = -40.36084
+offset_left = -243.0
+offset_top = -93.0
+offset_right = -77.86124
+offset_bottom = -54.36084
 rotation = 1.5917403
 scale = Vector2(1.0330955, 1.1605614)
 

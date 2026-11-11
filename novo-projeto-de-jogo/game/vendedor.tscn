@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://70ijusktdcy"]
+
+[ext_resource type="Script" uid="uid://bpmusyvdwhljq" path="res://game/scripts/npc.gd" id="1_ao3sx"]
+[ext_resource type="Texture2D" uid="uid://bjh832gndx7wr" path="res://vendedor/sprite_0.png" id="2_tn2cx"]
+[ext_resource type="Texture2D" uid="uid://djodi0r5wwpi1" path="res://vendedor/sprite_1.png" id="3_hvy68"]
+[ext_resource type="Texture2D" uid="uid://603o317ssjio" path="res://vendedor/sprite_2.png" id="4_w8vta"]
+[ext_resource type="Texture2D" uid="uid://0lis0svwk2di" path="res://vendedor/sprite_3.png" id="5_cfi1s"]
+[ext_resource type="Texture2D" uid="uid://c0417uj4tysi2" path="res://vendedor/sprite_4.png" id="6_8myoc"]
+[ext_resource type="Texture2D" uid="uid://rn1xo0hj23tx" path="res://vendedor/sprite_5.png" id="7_trdbw"]
+[ext_resource type="Texture2D" uid="uid://t132podumaap" path="res://vendedor/sprite_6.png" id="8_njiet"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tn2cx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hvy68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w8vta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cfi1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8myoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_trdbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_njiet")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(11, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(200, 176)
+
+[node name="npc" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
+script = ExtResource("1_ao3sx")
+zona = NodePath("Area2D")
+dica = NodePath("Label")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(12.8, -2.8333309)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.3872654
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(11, 16)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(3, 27)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Label" type="Label" parent="." unique_id=782062345]
+offset_left = 1.0
+offset_top = -74.0
+offset_right = 19.0
+offset_bottom = -29.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Z"

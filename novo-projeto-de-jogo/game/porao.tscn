@@ -1,66 +1,65 @@
 [gd_scene format=3 uid="uid://cw2ow8ejoavnd"]
 
+[ext_resource type="Script" uid="uid://b12mx0rpyxrh1" path="res://game/scripts/porao.gd" id="1_abuhc"]
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_kyqcb"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_bgg6h"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_abuhc"]
+[ext_resource type="PackedScene" uid="uid://bv2uap3luv50r" path="res://game/charlot.tscn" id="4_bgg6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(642, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(447, 23)
+size = Vector2(649, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(24, 383)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 369)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eujrb"]
-size = Vector2(83.98399, 101.15114)
+size = Vector2(44.491936, 79.18658)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyt1"]
-size = Vector2(30.368816, 78.879395)
+size = Vector2(66.83283, 326.76862)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18aeo"]
-size = Vector2(38.13171, 40.978043)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfc8t"]
-size = Vector2(54, 46)
-
-[node name="quarto_charlote" type="Node2D" unique_id=136420949]
+[node name="porao" type="Node2D" unique_id=136420949]
+script = ExtResource("1_abuhc")
+requisitos = Array[String](["estante_aberta", "chave_dourada"])
+cena_de_volta = "uid://cbpi35ag63ik"
+spawn_de_volta = "escadas"
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = 1.0
+offset_right = 641.0
+offset_bottom = 357.0
 color = Color(0.110950954, 0.03927645, 0.011325774, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(327, -2)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(319.5, 331.5)
+position = Vector2(322.5, 361)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(-6, 182.5)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(647, 174.5)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
 
 [node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_kyqcb")]
-position = Vector2(320, 308)
-cena_destino = "uid://dvbqc0uq2xmd4"
-spawn_destino = "trem"
+position = Vector2(298, 60)
+cena_destino = "uid://cbpi35ag63ik"
+spawn_destino = "porta_secreta"
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
 
@@ -68,10 +67,10 @@ spawn_destino = "trem"
 position = Vector2(320, 260)
 
 [node name="escadas" type="Marker2D" parent="Spawns" unique_id=252847946]
-position = Vector2(160, 110)
+position = Vector2(244, 65)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_bgg6h")]
-position = Vector2(320, 260)
+position = Vector2(167, 72)
 velocidade = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
@@ -83,54 +82,41 @@ script = ExtResource("3_abuhc")
 position = Vector2(320, 150)
 
 [node name="ColorRect" type="ColorRect" parent="Moveis/Balcao" unique_id=915784543]
-offset_left = 201.99998
-offset_top = -114.0
-offset_right = 298.87497
-offset_bottom = -41.3621
+offset_left = 272.99994
+offset_top = -131.0
+offset_right = 334.305
+offset_bottom = 129.98306
 rotation = 1.5515977
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(1, 1, 0.42352942, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1482807757]
-position = Vector2(158, -60)
+position = Vector2(182.25647, 82.4249)
 rotation = -0.006981317
 shape = SubResource("RectangleShape2D_eujrb")
 
 [node name="ColorRect3" type="ColorRect" parent="Moveis/Balcao" unique_id=835122981]
-offset_left = 147.00002
-offset_top = -9.999999
-offset_right = 198.1185
-offset_bottom = 28.639164
+offset_left = -68.99999
+offset_top = 85.00001
+offset_right = -17.881508
+offset_bottom = 123.639175
 rotation = 0.029670598
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(0.36207703, 0.36207703, 0.362077, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Moveis/Balcao" unique_id=257292969]
-offset_left = -198.00003
-offset_top = 23.000008
-offset_right = -160.48105
-offset_bottom = 54.831806
+offset_left = 163.0
+offset_top = 42.0
+offset_right = 200.51898
+offset_bottom = 111.574814
 rotation = 0.029670598
 scale = Vector2(1.0330955, 1.1605614)
 color = Color(0.5582066, 0.26434046, 0.14101088, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1981297045]
-position = Vector2(-161, -96)
+position = Vector2(133, -99)
 rotation = -1.5777776
 shape = SubResource("RectangleShape2D_tiyt1")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=341302796]
-position = Vector2(-179.48206, 42.069702)
-rotation = -1.5777776
-shape = SubResource("RectangleShape2D_18aeo")
-
-[node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=237795098]
-offset_left = -200.0
-offset_top = -110.0
-offset_right = -122.0
-offset_bottom = -81.0
-color = Color(0.9828206, 0.93538034, 0.9669042, 0.33333334)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=2072270116]
-position = Vector2(173, 13)
-shape = SubResource("RectangleShape2D_kfc8t")
+[node name="charlot" parent="." unique_id=944284622 instance=ExtResource("4_bgg6h")]
+position = Vector2(185, 266)

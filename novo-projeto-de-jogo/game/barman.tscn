@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://hp3uaam0pwrg"]
+
+[ext_resource type="Script" uid="uid://bpmusyvdwhljq" path="res://game/scripts/npc.gd" id="1_hilyy"]
+[ext_resource type="Texture2D" uid="uid://cqsbp43x11k58" path="res://barista/sprite_00.png" id="2_yagt0"]
+[ext_resource type="Texture2D" uid="uid://731x1rd6jme4" path="res://barista/sprite_01.png" id="3_au614"]
+[ext_resource type="Texture2D" uid="uid://cvls0xuy21mok" path="res://barista/sprite_02.png" id="4_hpmpk"]
+[ext_resource type="Texture2D" uid="uid://dvmnaawpm1yqv" path="res://barista/sprite_03.png" id="5_66xl6"]
+[ext_resource type="Texture2D" uid="uid://bqgswc6otb4hp" path="res://barista/sprite_04.png" id="6_8u21a"]
+[ext_resource type="Texture2D" uid="uid://dypi1i05ckvnf" path="res://barista/sprite_05.png" id="7_hilyy"]
+[ext_resource type="Texture2D" uid="uid://bmrjpnhpoqgun" path="res://barista/sprite_06.png" id="8_1wwkp"]
+[ext_resource type="Texture2D" uid="uid://xyckq3pphvwq" path="res://barista/sprite_07.png" id="9_x7cxk"]
+[ext_resource type="Texture2D" uid="uid://c2bf4la5ron1o" path="res://barista/sprite_08.png" id="10_j3khv"]
+[ext_resource type="Texture2D" uid="uid://ckxk0txev34ff" path="res://barista/sprite_09.png" id="11_jpigr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yagt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_au614")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hpmpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_66xl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8u21a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hilyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1wwkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x7cxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j3khv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jpigr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(11, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(200, 176)
+
+[node name="npc" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
+script = ExtResource("1_hilyy")
+conversa_id = "barista_1"
+zona = NodePath("Area2D")
+dica = NodePath("Label")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(12.8, -2.8333309)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.07355559
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(11, 16)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(3, 27)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Label" type="Label" parent="." unique_id=782062345]
+offset_left = 1.0
+offset_top = -74.0
+offset_right = 19.0
+offset_bottom = -29.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Z"

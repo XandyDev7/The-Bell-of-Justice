@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bhmdjb2nn6d45"]
+
+[ext_resource type="Script" uid="uid://bpmusyvdwhljq" path="res://game/scripts/npc.gd" id="1_i5agk"]
+[ext_resource type="Texture2D" uid="uid://cq17gldcoc4nl" path="res://bancario/sprite_0.png" id="2_ohbxw"]
+[ext_resource type="Texture2D" uid="uid://dnb8oc3yq8ca3" path="res://bancario/sprite_1.png" id="3_errcc"]
+[ext_resource type="Texture2D" uid="uid://4e4tsnf2xuw5" path="res://bancario/sprite_2.png" id="4_djfuo"]
+[ext_resource type="Texture2D" uid="uid://be8b7mupgb5ib" path="res://bancario/sprite_3.png" id="5_f7ake"]
+[ext_resource type="Texture2D" uid="uid://ore3aeyshwsd" path="res://bancario/sprite_4.png" id="6_6xa38"]
+[ext_resource type="Texture2D" uid="uid://bou6c57halaar" path="res://bancario/sprite_5.png" id="7_74cpn"]
+[ext_resource type="Texture2D" uid="uid://d3x5a1qr3fbnr" path="res://bancario/sprite_6.png" id="8_b7w23"]
+[ext_resource type="Texture2D" uid="uid://bklgbqu20iux0" path="res://bancario/sprite_7.png" id="9_i5agk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0eb53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ohbxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_errcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_djfuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7ake")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6xa38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_74cpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b7w23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i5agk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
+size = Vector2(11, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
+size = Vector2(200, 176)
+
+[node name="npc" type="StaticBody2D" unique_id=944284622 node_paths=PackedStringArray("zona", "dica", "sprite")]
+script = ExtResource("1_i5agk")
+conversa_id = "bancario_1"
+zona = NodePath("Area2D")
+dica = NodePath("Label")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=478811451]
+modulate = Color(0.790597, 0.7436661, 0.5415576, 1)
+position = Vector2(12.8, -2.8333309)
+scale = Vector2(0.77500004, 0.7673611)
+sprite_frames = SubResource("SpriteFrames_0eb53")
+animation = &"idle"
+frame_progress = 0.85859036
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488455937]
+position = Vector2(11, 16)
+shape = SubResource("RectangleShape2D_0eb53")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1848520466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1975933314]
+position = Vector2(3, 27)
+shape = SubResource("RectangleShape2D_vanes")
+
+[node name="Label" type="Label" parent="." unique_id=782062345]
+offset_left = 1.0
+offset_top = -74.0
+offset_right = 19.0
+offset_bottom = -29.0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Z"

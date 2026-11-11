@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bjwb5gfykyejg"]
+
+[ext_resource type="PackedScene" uid="uid://uhgu7q44iyp3" path="res://game/npc.tscn" id="1_w30pm"]
+[ext_resource type="Texture2D" uid="uid://offlygw6fm5b" path="res://julie/sprite_1.png" id="3_mrovs"]
+[ext_resource type="Texture2D" uid="uid://b1figng7cyaye" path="res://julie/sprite_2.png" id="4_0vixj"]
+[ext_resource type="Texture2D" uid="uid://da8iw4dyl75w5" path="res://julie/sprite_3.png" id="5_a3j2t"]
+[ext_resource type="Texture2D" uid="uid://hvj2h2h1gvos" path="res://julie/sprite_4.png" id="6_w4lbt"]
+[ext_resource type="Texture2D" uid="uid://bct7mdslbohoo" path="res://julie/sprite_5.png" id="7_w30pm"]
+[ext_resource type="Texture2D" uid="uid://3xuj3p7501st" path="res://julie/sprite_6.png" id="8_tt2sx"]
+[ext_resource type="Texture2D" uid="uid://gu0w442sxsyx" path="res://julie/sprite_7.png" id="9_ccs7g"]
+[ext_resource type="Texture2D" uid="uid://cnls5sx11477i" path="res://julie/sprite_8.png" id="10_rd20r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_go6qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mrovs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0vixj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3j2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w4lbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w30pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tt2sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ccs7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rd20r")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imoyx"]
+size = Vector2(20, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6tf0"]
+size = Vector2(39, 53)
+
+[node name="julie" unique_id=944284622 instance=ExtResource("1_w30pm")]
+conversa_id = "charlotte_final"
+
+[node name="Sprite2D" parent="." index="0" unique_id=478811451]
+position = Vector2(11, -2)
+sprite_frames = SubResource("SpriteFrames_go6qf")
+frame_progress = 0.22803397
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1488455937]
+position = Vector2(10, -9.25)
+shape = SubResource("RectangleShape2D_imoyx")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1848520466) index="0" unique_id=1975933314]
+position = Vector2(14.5, -7.5)
+shape = SubResource("RectangleShape2D_n6tf0")
+
+[node name="Label" parent="." index="3" unique_id=782062345]
+offset_left = 4.0
+offset_top = -79.0
+offset_bottom = -34.0
+text = "z"

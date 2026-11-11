@@ -11,7 +11,6 @@ var _armada := false
 
 func _ready() -> void:
 	body_entered.connect(_on_corpo_entrou)
-	# ignora quem já nasce em cima da porta ao entrar na cena
 	await get_tree().create_timer(0.6).timeout
 	_armada = true
 

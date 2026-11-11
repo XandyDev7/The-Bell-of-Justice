@@ -1,6 +1,5 @@
 extends Control
 
-# proximaa do jogo 
 const PROXIMA_CENA := "res://game/casa_sala.tscn"
 
 const CARACTERES_POR_SEGUNDO := 30.0

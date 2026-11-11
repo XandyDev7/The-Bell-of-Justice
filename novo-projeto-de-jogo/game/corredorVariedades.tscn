@@ -5,66 +5,66 @@
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_pivrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(647, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(447, 23)
+size = Vector2(649, 16.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(24, 372)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 367)
 
 [node name="corredorVariedades" type="Node2D" unique_id=136420949]
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 641.0
+offset_bottom = 357.0
 color = Color(0.110950954, 0.03927645, 0.011325774, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(330, -5)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(319.5, 331.5)
+position = Vector2(318.5, 363.25)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(-2, 175)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(644, 178.5)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
 
 [node name="portarua" parent="Portas" unique_id=263886491 instance=ExtResource("1_tuadl")]
-position = Vector2(320, 308)
+position = Vector2(311, 337)
 cena_destino = "uid://c2e8r3aha2ave"
-spawn_destino = "corredorVariedades"
+spawn_destino = "loja_variedades"
 
 [node name="portarua3" parent="Portas" unique_id=2117550468 instance=ExtResource("1_tuadl")]
-position = Vector2(458, 59)
+position = Vector2(558, -3)
 cena_destino = "uid://cw7agtctjtkdy"
-spawn_destino = "corredorVariedades"
+spawn_destino = "uu"
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
 
 [node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
-position = Vector2(320, 260)
+position = Vector2(311, 314)
 
-[node name="escadas" type="Marker2D" parent="Spawns" unique_id=252847946]
-position = Vector2(160, 110)
+[node name="entrada2" type="Marker2D" parent="Spawns" unique_id=252847946]
+position = Vector2(556, 16)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_v7yb1")]
-position = Vector2(316, 275)
+position = Vector2(312, 262)
 velocidade = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]

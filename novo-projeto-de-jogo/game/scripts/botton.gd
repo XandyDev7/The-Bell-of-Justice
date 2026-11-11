@@ -15,12 +15,20 @@ func _on_creditsbutton_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://game/introdução.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://game/introdução.tscn")
 	print("start pressed")
 	pass
 
 func _on_credits_pressed() -> void:
-	get_tree().change_scene_to_file("res://game/creditos.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://game/creditos.tscn")
 	print ("credits pressed")
 
-	pass 
+	 
+	
+	
+
+
+func _on_returnz_pressed() -> void:
+	get_tree().change_scene_to_file.call_deferred("res://game/boton.tscn")
+	print("return pressed")
+	

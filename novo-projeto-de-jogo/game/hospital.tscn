@@ -1,51 +1,61 @@
 [gd_scene format=3 uid="uid://cfyhc0l5gctrl"]
 
-[ext_resource type="Script" uid="uid://blnq45sa6j8x" path="res://game/hospital.gd" id="1_dghl0"]
+[ext_resource type="Script" uid="uid://blnq45sa6j8x" path="res://game/scripts/hospital.gd" id="1_dghl0"]
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_w5i0r"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_dghl0"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_fwbne"]
+[ext_resource type="PackedScene" uid="uid://c5ytj1cyegqkr" path="res://game/doutor.tscn" id="5_dghl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(643, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(447, 23)
+size = Vector2(672, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(24, 374)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 366)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiyt1"]
 size = Vector2(96.52557, 86.45592)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dghl0"]
+size = Vector2(148.0299, 66.20644)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbne"]
+size = Vector2(137.81784, 66.20644)
+
 [node name="hospital" type="Node2D" unique_id=136420949]
 script = ExtResource("1_dghl0")
+requisitos = Array[String](["grupo_casa_bell"])
+cena_de_volta = "casa_sala"
+spawn_de_volta = "entrada"
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_left = 2.0
+offset_top = -20.0
+offset_right = 639.0
+offset_bottom = 360.0
 color = Color(0.110950954, 0.03927645, 0.011325774, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(319.5, -11)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(319.5, 331.5)
+position = Vector2(313, 369)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(1, 176)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(651, 183)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
@@ -88,3 +98,16 @@ color = Color(1, 1, 0.42352942, 0.41960785)
 position = Vector2(8.991333, 14.75705)
 rotation = -1.5777776
 shape = SubResource("RectangleShape2D_tiyt1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=326349608]
+position = Vector2(57.12607, 134.05777)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_dghl0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1892002574]
+position = Vector2(40.916748, -115.92398)
+rotation = -1.5777776
+shape = SubResource("RectangleShape2D_fwbne")
+
+[node name="doutor" parent="." unique_id=944284622 instance=ExtResource("5_dghl0")]
+position = Vector2(408, 156)

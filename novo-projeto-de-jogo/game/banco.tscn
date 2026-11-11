@@ -1,67 +1,69 @@
 [gd_scene format=3 uid="uid://c7tk5o0jibqm3"]
 
 [ext_resource type="PackedScene" uid="uid://c48ohihn862p8" path="res://game/porta.tscn" id="1_3x6lq"]
-[ext_resource type="Script" uid="uid://bg4orae3n5urv" path="res://game/banco.gd" id="1_rbakx"]
+[ext_resource type="Script" uid="uid://bg4orae3n5urv" path="res://game/scripts/banco.gd" id="1_rbakx"]
 [ext_resource type="PackedScene" uid="uid://dxrgnat6gxr6n" path="res://game/player.tscn" id="2_rbakx"]
 [ext_resource type="Script" uid="uid://cdgb5wdp1pa2t" path="res://game/scripts/camera_2d.gd" id="3_5hjy3"]
+[ext_resource type="PackedScene" uid="uid://bhmdjb2nn6d45" path="res://game/bancario.tscn" id="5_rbakx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eb53"]
-size = Vector2(448, 24)
+size = Vector2(644, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vanes"]
-size = Vector2(448, 24)
+size = Vector2(652, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slf6f"]
-size = Vector2(24, 280)
+size = Vector2(24, 352)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ithms"]
-size = Vector2(24, 280)
+size = Vector2(24, 388)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6qfi"]
-size = Vector2(220, 28)
+size = Vector2(643, 28)
 
 [node name="banco" type="Node2D" unique_id=136420949]
 script = ExtResource("1_rbakx")
+requisitos = Array[String](["falou_barista"])
+cena_de_volta = "uid://dvbqc0uq2xmd4"
+spawn_de_volta = "banco"
 
 [node name="piso" type="ColorRect" parent="." unique_id=1298592773]
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 520.0
-offset_bottom = 320.0
+offset_right = 638.0
+offset_bottom = 360.0
 color = Color(0.23137255, 0.1882353, 0.15686275, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1150853710]
 
 [node name="Topo" type="CollisionShape2D" parent="StaticBody2D" unique_id=27669665]
-position = Vector2(320, 28)
+position = Vector2(327, -9)
 shape = SubResource("RectangleShape2D_0eb53")
 
 [node name="baixo" type="CollisionShape2D" parent="StaticBody2D" unique_id=534161361]
-position = Vector2(320, 332)
+position = Vector2(314, 367)
 shape = SubResource("RectangleShape2D_vanes")
 
 [node name="Esquerda" type="CollisionShape2D" parent="StaticBody2D" unique_id=1395869401]
-position = Vector2(108, 180)
+position = Vector2(-11, 178)
 shape = SubResource("RectangleShape2D_slf6f")
 
 [node name="Direita" type="CollisionShape2D" parent="StaticBody2D" unique_id=2013589050]
-position = Vector2(532, 180)
+position = Vector2(646, 180)
 shape = SubResource("RectangleShape2D_ithms")
 
 [node name="Portas" type="Node2D" parent="." unique_id=2084145023]
 
 [node name="PortaSaida" parent="Portas" unique_id=263886491 instance=ExtResource("1_3x6lq")]
-position = Vector2(320, 308)
+position = Vector2(315, 357)
 cena_destino = "uid://dvbqc0uq2xmd4"
 spawn_destino = "banco"
 
 [node name="Spawns" type="Node2D" parent="." unique_id=1883094216]
 
 [node name="entrada" type="Marker2D" parent="Spawns" unique_id=1246974021]
-position = Vector2(320, 260)
+position = Vector2(313, 337)
 
 [node name="Player" parent="." unique_id=1380536196 instance=ExtResource("2_rbakx")]
-position = Vector2(320, 260)
+position = Vector2(304, 295)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1214944965]
 script = ExtResource("3_5hjy3")
@@ -78,19 +80,15 @@ offset_right = 203.0
 offset_bottom = -48.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moveis/Balcao" unique_id=1847951933]
-position = Vector2(1, -61)
+position = Vector2(2.5, -61)
 shape = SubResource("RectangleShape2D_e6qfi")
 
 [node name="ColorRect2" type="ColorRect" parent="Moveis/Balcao" unique_id=1279914761]
-offset_left = -199.0
-offset_top = 71.0
-offset_right = -191.0
-offset_bottom = 127.0
+offset_left = -313.0
+offset_top = 100.0
+offset_right = -305.0
+offset_bottom = 156.0
 color = Color(0, 0.45147526, 0.45161676, 1)
 
-[node name="portafundo" type="ColorRect" parent="Moveis" unique_id=477085983]
-offset_left = 120.0
-offset_top = 39.0
-offset_right = 140.0
-offset_bottom = 57.0
-color = Color(0.3314517, 0.19185165, 0.05879025, 1)
+[node name="npc" parent="." unique_id=944284622 instance=ExtResource("5_rbakx")]
+position = Vector2(315, 53)

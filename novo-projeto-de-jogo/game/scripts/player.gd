@@ -7,7 +7,7 @@ const ANIMACOES := {
 	"idle_left": "left",
 	"idle_right": "right",
 	"walk_down": "front_walk",
-	"walk_up": "back",
+	"walk_up": "back_walk",
 	"walk_left": "left_walk",
 	"walk_right": "right_walk",
 }
@@ -53,7 +53,6 @@ func _ler_direcao() -> Vector2:
 	var x := Input.get_axis("ui_left", "ui_right")
 	var y := Input.get_axis("ui_up", "ui_down")
 
-	# só 4 direções: se duas setas estiverem apertadas, vale a última
 	if x != 0 and y != 0:
 		if _prioridade_horizontal:
 			y = 0
